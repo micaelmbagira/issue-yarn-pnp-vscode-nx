@@ -1,6 +1,71 @@
 {
   "version": 2,
-  "projects": {},
+  "projects": {
+    "foo": {
+      "root": "libs/foo",
+      "sourceRoot": "libs/foo/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/foo",
+            "tsConfig": "libs/foo/tsconfig.lib.json",
+            "packageJson": "libs/foo/package.json",
+            "main": "libs/foo/src/index.ts",
+            "assets": ["libs/foo/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/foo/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/foo"],
+          "options": {
+            "jestConfig": "libs/foo/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "bar": {
+      "root": "libs/bar",
+      "sourceRoot": "libs/bar/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/bar",
+            "tsConfig": "libs/bar/tsconfig.lib.json",
+            "packageJson": "libs/bar/package.json",
+            "main": "libs/bar/src/index.ts",
+            "assets": ["libs/bar/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/bar/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/bar"],
+          "options": {
+            "jestConfig": "libs/bar/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
   "cli": {
     "defaultCollection": "@nrwl/workspace"
   }

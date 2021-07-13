@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@issue-yarn-pnp-vscode-nx/foo": ["libs/foo/src/index.ts"],
+      "@issue-yarn-pnp-vscode-nx/bar": ["libs/bar/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
